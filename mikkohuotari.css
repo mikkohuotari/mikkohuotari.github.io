@@ -1,0 +1,78 @@
+body {
+  font-size: 1rem;
+  font-family: Helvetica;
+  text-transform: uppercase;
+}
+
+#app {
+  animation: 1s center-reveal;
+  animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+
+  overflow: hidden;
+  
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: column;
+  justify-content: center;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: row;
+  justify-content: space-around;
+}
+
+#logo {
+  height: 63px;
+  width: 500px;
+  margin-left: -20px;
+  background-image: url("mikkohenrikhuotari.gif");
+  background-repeat: no-repeat;
+  background-size: fit;
+}
+
+#contact {
+  animation: reveal 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  border-left: 1px solid black;
+  padding-left: 50px;
+}
+
+#links {
+  animation: reveal 2s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+  border-left: 1px solid black;
+  padding-left: 50px;
+}
+
+.link {
+
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes strobe {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes center-reveal {
+  0% {
+    transform: scaleY(0);
+  }
+}
