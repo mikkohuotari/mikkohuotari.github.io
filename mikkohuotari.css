@@ -4,6 +4,7 @@
        url('cartographmonocf-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  -webkit-backface-visibility: visible;
 }
 
 body {
@@ -76,26 +77,26 @@ h1 {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
   color: grey;
   border-bottom: 3px solid blue;
   text-transform: uppercase;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a:hover {
-
+  color: blue;
+  transform: scale(1.1);
+  border-bottom-width: 1rem;
+  margin-bottom: -0.8rem;
 }
 
 @keyframes reveal {
   0% {
     opacity: 0;
     transform: translateY(20px);
-  }
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
   }
 }
 
