@@ -53,6 +53,11 @@ body {
   animation-delay: 1.2s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
 }
 
 span.blink {
@@ -74,6 +79,10 @@ span.block {
 
 h1 {
   line-height: 3rem;
+}
+
+h3 {
+  margin-right: 2rem;
 }
 
 a {
