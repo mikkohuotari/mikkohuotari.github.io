@@ -133,3 +133,18 @@ a:hover {
   }
 }
 
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: whitesmoke;
+  }
+
+  span.block {
+    color: black;
+    background-color: whitesmoke;
+  }
+
+  a {
+    color: white;
+  }
+}
