@@ -1,5 +1,5 @@
-var adjectives = ["cool", "🔥", "chill", "ace", "ok"];
-var random = Math.round(Math.random() * 4);
+var adjectives = ["rad", "cool", "🔥", "chill", "ace", "ok"];
+var random = Math.round(Math.random() * (adjectives.length - 1));
 var randomAdjective = adjectives[random];
 
 window.onload = function(){
