@@ -1,52 +1,80 @@
 @font-face {
-  font-family: cartographmonocf-medium;
-  src: url('cartographmonocf-medium-webfont.woff2') format('woff2'),
-       url('cartographmonocf-medium-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-family: cartographmonocf-light;
+  src: url('fonts/cartographmonocf-light-webfont.woff2') format('woff2'),
+       url('fonts/cartographmonocf-light-webfont.woff') format('woff');
   -webkit-backface-visibility: visible;
 }
 
 body {
   background-color: white;
   color: black;
-  font-family: "cartographmonocf-medium", "Helvetica";
-  font-size: 16pt;
+  font-family: "cartographmonocf-light", "Helvetica";
   margin: 0;
-  line-height: 2.3rem;
+  font-size: 16pt;
+  line-height: 28pt;
+  /* transition: 0.5s;
+  transition-delay: 1s; */
+  /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
 
 #app {
-  animation: 1s center-reveal;
-  animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  min-height: 600px;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
+  flex-direction: row-reverse;
+  overflow: hidden;
 }
 
 #content {
   animation: 5s grey;
-  align-items: stretch;
+  
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
   justify-content: space-evenly;
-  padding: 25px;
+}
+
+.padded {
+  padding: 1.5em;
+}
+
+#photo {
+  animation: photo 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-delay: 1.5s;
+}
+
+img.square {
+  width: 500px;
+  height: 500px;
+  transition: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #description {
-  animation: reveal 2s;
+  animation: reveal 2.4s;
   animation-delay: 0.8s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
-  max-width: 1000px;
+.divider {
+  animation: loader 1s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+
+  height: 0.1em;
+  background-color: black;
+  transform-origin: 0 0;
+}
+
+#title {
+  animation: title-reveal 1.2s;
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  word-spacing: 1000px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #links {
@@ -54,37 +82,16 @@ body {
   animation-delay: 1.2s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  
+
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: end;
-}
-
-span.blink {
-  animation: blink 1.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(1, end);
-  color: blue;
-}
-
-span.cursor {
-  animation: blink 1.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(1, end);
-
-  width: 20px;
-  height: 5px;
-  background-color: blue;
-  display: inline-block;
-  margin-left: 10px;
-  margin-bottom: -2px;
+  min-height: 100px;
+  justify-content: space-evenly;
 }
 
 h1 {
-  line-height: 3rem;
-  display: inline-block;
-  white-space: pre-wrap;
+  line-height: 1.1em;
 }
 
 span.block {
@@ -98,24 +105,47 @@ span.block {
   white-space: nowrap;
 }
 
-h3 {
-  margin-right: 2rem;
+span.blink {
+  animation: blink 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+  
+  color: blue;
+}
+
+span.cursor {
+  animation: blink 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+
+  width: 0.6em;
+  height: 0.1em;
+  background-color: blue;
+  display: inline-block;
 }
 
 a {
-  display: inline-block;
   text-decoration: none;
   color: grey;
-  border-bottom: 3px solid blue;
+  border-bottom: 0.2em solid blue;
+  margin-bottom: -0.2em;
+  margin-right: auto;
   transition: 0.5s;
+  margin-top: 0.4em;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a:hover {
   color: blue;
-  transform: scale(1.1);
-  border-bottom-width: 1rem;
-  margin-bottom: -0.8rem;
+  border-bottom-width: 1em;
+  margin-bottom: -1em;
+}
+
+@keyframes photo {
+  0% {
+    filter: brightness(0);
+    transform: scale(0.8);
+  }
 }
 
 @keyframes reveal {
@@ -125,15 +155,22 @@ a:hover {
   }
 }
 
-@keyframes blink {
-  50% {
+@keyframes title-reveal {
+  0% {
     opacity: 0;
+    transform: translateY(30px);
   }
 }
 
-@keyframes center-reveal {
+@keyframes loader {
   0% {
-    transform: scaleY(0);
+    transform: scaleX(0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }
 
@@ -143,86 +180,83 @@ a:hover {
   }
 }
 
+@keyframes darken {
+  0% {
+    background-color: black;
+  }
+}
+
 @keyframes blue {
   0% {
     color: blue;
   }
 }
 
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   body {
+    animation: 1s darken;
+    animation-fill-mode: both;
+
     background-color: black;
     color: whitesmoke;
   }
-
+  #photo {
+    filter: brightness(0.9);
+  }
   span.block {
     color: black;
     background-color: whitesmoke;
   }
-
   a {
     color: white;
   }
-}
+} */
 
 @media screen and (max-width: 320px) {
   body {
-    font-size: 12pt;
-    line-height: 1.6rem;
-  }
-  h1 {
-    line-height: 2rem;
-  }
-  #app {
-    flex-direction: column;
-  }
-  #links {
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 200px) and (max-width: 320px)  {
-  body {
-    font-size: 12pt;
-    line-height: 1.9rem;
-  }
-  #app {
-    flex-direction: column;
-  }
-  #links {
-    flex-direction: column;
+    font-size: 14pt;
+    line-height: 24pt;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 375px)  {
   body {
-    font-size: 13pt;
-    line-height: 2.0rem;
-  }
-  #app {
-    flex-direction: column;
-  }
-  #links {
-    flex-direction: column;
+    font-size: 14.5pt;
+    line-height: 26pt;
   }
 }
 
 @media only screen and (min-width: 376px) and (max-width: 414px)  {
-  body {
-    font-size: 14pt;
-    line-height: 2.1rem;
-  }
-  #app {
-    flex-direction: column;
+}
+
+@media only screen and (min-width: 415px) and (max-width: 438px)  {
+}
+
+@media only screen and (max-width: 1200px)  {
+  #description {
+    max-width: unset;
   }
   #links {
     flex-direction: column;
   }
+  img.square {
+    width: 250px;
+    height: 250px;
+  }
 }
 
-@media only screen and (min-width: 415px) and (max-width: 438px)  {
+@media only screen and (max-width: 700px)  {
   #app {
-    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+  #photo {
+    animation: 1s photo;
+    padding: unset;
+    margin-bottom: -10em;  
+  }
+  img.square {
+    width: 100%;
+    height: auto;
   }
   #links {
     flex-direction: column;
