@@ -192,7 +192,7 @@ a:hover {
   }
 }
 
-/* @media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   body {
     animation: 1s darken;
     animation-fill-mode: both;
@@ -210,7 +210,7 @@ a:hover {
   a {
     color: white;
   }
-} */
+}
 
 @media screen and (max-width: 320px) {
   body {
