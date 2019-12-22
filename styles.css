@@ -35,10 +35,11 @@ body {
 }
 
 #photo {
-  animation: photo 0.6s;
-  animation-fill-mode: both;
+  animation: photo 1.2s;
+  animation-fill-mode: backwards;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  animation-delay: 1.5s;
+
+  filter: contrast(1.2);
 }
 
 img.square {
@@ -64,7 +65,7 @@ img.square {
 }
 
 #title {
-  animation: title-reveal 1.2s;
+  animation: reveal-yy 1.2s;
   animation-delay: 0.6s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -141,7 +142,7 @@ a:hover {
 @keyframes photo {
   0% {
     filter: brightness(0);
-    transform: scale(0.8);
+    transform: scale(.8);
   }
 }
 
@@ -159,16 +160,10 @@ a:hover {
   }
 }
 
-@keyframes title-reveal {
+@keyframes reveal-yy {
   0% {
     opacity: 0;
-    transform: translateY(30px);
-  }
-}
-
-@keyframes loader {
-  0% {
-    transform: scaleX(0);
+    transform: translateY(40px);
   }
 }
 
@@ -200,21 +195,26 @@ a:hover {
 
 @media screen and (prefers-color-scheme: dark) {
   body {
-    animation: 1s darken;
+    animation: 5s darken;
     animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     background-color: black;
-    color: lightgray;
-  }
-  #photo {
-    filter: brightness(.9);
+    color: whitesmoke;
   }
   span.block {
     color: black;
     background-color: whitesmoke;
   }
+  span.cursor {
+    background-color: white;
+  }
   a {
-    color: whitesmoke;
+    color: lightgray; 
+    border-bottom-color: white;
+  }
+  a:hover {
+    color: white;
   }
 }
 
@@ -250,6 +250,28 @@ a:hover {
 }
 
 /* Mobile */
+
+@media only screen /* Iphone XS */
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+  #app {
+    flex-direction: column;
+  }
+  #links {
+    flex-direction: column;
+  }
+  #photo {
+    animation: title-reveal .4s;
+    padding: unset;
+    overflow: hidden;
+  }
+  img.square {
+    width: 100%;
+    height: auto;
+    margin-bottom: -2em;
+  }
+}
 
 @media only screen and (min-width: 321px) and (max-width: 375px)  {
   body {
