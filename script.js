@@ -1,4 +1,4 @@
-var adjectives = ["cool", "🔥", "chill", "ace", "ok"];
+var adjectives = ["cool", "🔥", "chill", "ace", "wavy"];
 var random = Math.round(Math.random() * 4);
 var randomAdjective = adjectives[random];
 
