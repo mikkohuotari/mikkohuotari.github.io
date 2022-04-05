@@ -70,7 +70,6 @@ img.square {
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  word-spacing: 1000px;
   display: flex;
   justify-content: space-between;
 }
