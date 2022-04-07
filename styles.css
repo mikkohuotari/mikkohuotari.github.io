@@ -23,7 +23,6 @@ body {
   color: rgb(23, 23, 23);
   font-family: "cartographmonocf-light", "Helvetica";
   margin: 0;
-  line-height: calc(var(--dynamic-line-height) - 10px);
 }
 
 .cover {
@@ -76,8 +75,4 @@ span.block {
   scroll-snap-stop: always;
   padding: var(--padding);
   margin-bottom: -(var(--padding));
-}
-
-a {
-  
 }
