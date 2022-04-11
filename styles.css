@@ -70,8 +70,9 @@ span.block {
 }
 
 .app {
-  height: calc(var(--viewport) + env(safe-area-inset-bottom));
+  height: var(--viewport);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: var(--padding);
+  margin-bottom: env(safe-area-inset-bottom);
 }
