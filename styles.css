@@ -6,8 +6,8 @@
 }
 
 :root {
-  --padding: 10vh;
-  --viewport: 80vh;
+  --padding: 10vw;
+  --viewport: 90vh;
 }
 
 html {
@@ -70,9 +70,8 @@ span.block {
 }
 
 .app {
-  height: var(--viewport);
+  height: calc(var(--viewport) - env(safe-area-inset-bottom));
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: var(--padding);
-  margin-bottom: env(safe-area-inset-bottom);
 }
