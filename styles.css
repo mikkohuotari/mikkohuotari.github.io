@@ -1,3 +1,4 @@
+@import "reset.css";
 @font-face {
   font-family: cartographmonocf-light;
   src: url('fonts/cartographmonocf-light-webfont.woff2') format('woff2'),
@@ -5,73 +6,82 @@
   -webkit-backface-visibility: visible;
 }
 
-:root {
-  --padding: 10vw;
-  --viewport: 90vh;
+html, body {
+	overflow-x: hidden;
+	overscroll-behavior-x: none;
+	background-color: white;
+	font-family: "cartographmonocf-light", "Helvetica";
 }
 
-html {
-  font-size: large;
-  scroll-snap-type: y mandatory;
-  overscroll-behavior-y: none;
-  overflow-x: hidden;
-  overflow-y: scroll;
+main {
+	height: 100vh;
 }
 
-body {
-  background-color: rgb(214, 213, 213);
-  color: rgb(23, 23, 23);
-  font-family: "cartographmonocf-light", "Helvetica";
-  margin: 0;
+header {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	background-color: whitesmoke;
+	color: black;
+	letter-spacing: .1rem;
+	z-index: 1;
+	padding: 0 0 0 20px;
+	box-sizing: border-box;
 }
 
-.cover {
-  height: var(--viewport);
-  padding-left: var(--padding);
-  padding-top: var(--padding);
-  background-color: rgb(83, 83, 83);
-  background-image: url('assets/mikko12.gif');
-  background-size: cover;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+section {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 50px;
+	bottom: 50px;
+	padding: 50px;
+	border-top: 1px solid black;
 }
 
 h1 {
-  color: rgb(57, 57, 57);
+	font-size: 4rem;
+	margin-left: 25px;
 }
 
-span.cursor {
-  animation: blink 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(1, end);
-
-  width: 0.5em;
-  height: 0.15em;
-  margin-bottom: -0.01em;
-  background-color: rgb(47, 255, 0);
-  display: inline-block;
+h1::after {
+	content: "|";
+	color: transparent;
+	animation: blink;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(1, end);
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+	50% {
+		color: blue;
+	}
 }
 
-span.block {
-  padding-top: .1em;
-  padding-bottom: .05em;
-  padding-left: .3em;
-  padding-right: .3em;
-  animation: block 1s;
-  color: white;
-  background-color: black;
-  text-transform: uppercase;
+h2 {
+	font-size: 1.6rem;
+	line-height: 129%;
+	margin-top: -5px;
+	max-width: 300px;
 }
 
-.app {
-  height: calc(var(--viewport) - env(safe-area-inset-bottom));
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  padding: var(--padding);
+p {
+	line-height: 140%;
+	padding-right: 100px;
+}
+
+a {
+	color: initial;
+	text-underline-offset: .3rem;
+	text-decoration-color: blue;
+}
+
+span.asterisk {
+	margin-left: -10px;
 }
