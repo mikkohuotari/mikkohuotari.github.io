@@ -14,7 +14,7 @@ html, body {
 }
 
 main {
-	height: 200dvh;
+	height: 200svh;
 }
 
 header {
@@ -23,7 +23,7 @@ header {
 	flex-direction: row;
 	align-items: flex-end;
 	justify-content: center;
-	height: 100dvh;
+	height: 100svh;
 	width: 100vw;
 	background-color: whitesmoke;
 	color: black;
